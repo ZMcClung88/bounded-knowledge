@@ -1,1 +1,38 @@
-{{test}}
+
+  <a href="#" ng-click="isBookSearchOpen = !isBookSearchOpen">Search Books</a>
+  <a href="#" ng-click="isQuotesOpen = !isQuotesOpen">Get Quote</a>
+
+
+  <div class="bookSearchBox" ng-show="isBookSearchOpen">
+    <input type="text" id="search" placeholder="Search Books" ng-model="book">
+    <button type="button" id="button" ng-click="bookSearch(book)">Click Me</button>
+    <div id="results"></div>
+
+    <div class="" ng-repeat="book in books">
+      <img ui-sref="about({id: items.id})" src="{{book.volumeInfo.imageLinks.thumbnail}}">
+      <p>{{book.volumeInfo.title}}</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="quoteFilterBox" ng-show="isQuotesOpen">
+     <input type="text" placeholder="New Quote Text!" ng-model="newQuoteText">
+  		<input type="text" placeholder="Quote Author" ng-model="newQuoteAuthor">
+  		<button ng-click="addQuote()">Add Quote</button>
+  		<div>
+  			Filter: <input type="text" ng-model="filterQuote">
+  		</div>
+
+
+  		<div ng-repeat="q in quotes | filter: filterQuote">
+  			<a ui-sref="about"><span class="text">{{q.text}}</span></a>
+  			<span class="author">-- {{q.author}}</span>
+  			<button ng-click="deleteQuote(q.text)">Delete</button>
+  		</div>
+
+      <div class="" ng-repeat="q in qod">
+        <p>{{q.quote}}</p>
+      </div>
+    </div>

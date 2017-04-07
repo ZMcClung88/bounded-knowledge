@@ -5,13 +5,13 @@ angular.module("App", ['ui.router'])
 
        $stateProvider
            .state('home', {
-               templateUrl: '../views/home.html',
+               templateUrl: './views/home.html',
                controller: 'homeCtrl',
                url: '/'
            })
            .state('about', {
-               templateUrl: '../views/about.html',
+               templateUrl: './views/about.html',
                controller: 'aboutCtrl',
-               url: '/about'
+               url: '/about/:id'
            });
  });
